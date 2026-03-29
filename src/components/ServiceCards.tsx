@@ -1,36 +1,28 @@
-import { Beef } from "lucide-react";
+import { Beef, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import inek1 from "@/assets/inek1.jpeg";
 import inek2 from "@/assets/inek2.jpeg";
 import inekler3 from "@/assets/inekler3.jpeg";
 
-const cards = [
+const images = [
   {
-    title: "Besili İnekler - 1. Seçim",
-    image: inekler3,
-    details: "Doğal Beslenme · Veteriner Kontrolü · En Yüksek Kalite",
-    iconType: "cattle" as const,
-    price: "₺85.000 – ₺120.000",
-    weight: "350 – 450 kg",
-    shares: "1, 2, 3 veya 7 Hisse",
+    id: 1,
+    src: inekler3,
+    title: "Besili Inekler - 1. Secim",
+    details: "Dogal Beslenme · Veteriner Kontrolu · En Yuksek Kalite",
   },
   {
-    title: "Besili İnekler - 2. Seçim",
-    image: inek1,
-    details: "Organik Beslenme · Sağlık Kontrolü · Premium Kalite",
-    iconType: "cattle" as const,
-    price: "₺90.000 – ₺140.000",
-    weight: "400 – 500 kg",
-    shares: "1, 2, 3 veya 7 Hisse",
+    id: 2,
+    src: inek1,
+    title: "Besili Inekler - 2. Secim",
+    details: "Organik Beslenme · Saglik Kontrolu · Premium Kalite",
   },
   {
-    title: "Besili İnekler - 3. Seçim",
-    image: inek2,
-    details: "Seçilmiş Beslenme · Hijyen Koşulları · İslami Usul",
-    iconType: "cattle" as const,
-    price: "₺95.000 – ₺150.000",
-    weight: "450 – 600 kg",
-    shares: "1, 2, 3 veya 7 Hisse",
+    id: 3,
+    src: inek2,
+    title: "Besili Inekler - 3. Secim",
+    details: "Secilmis Beslenme · Hijyen Kosullari · Islami Usul",
   },
 ];
 
@@ -39,62 +31,152 @@ const CattleIcon = () => (
 );
 
 const ServiceCards = () => {
+  const [current, setCurrent] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [autoPlay]);
+
+  const prev = () => {
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+    setAutoPlay(false);
+  };
+
+  const next = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+    setAutoPlay(false);
+  };
+
   return (
     <section id="kurbanliklar" className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-12"
+        >
+          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Besili Ineklerimiz</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Kaymakam Besi Ciftliginin en iyi kalitedeki ineklerini buradan secebilirsiniz.
+          </p>
+        </motion.div>
+
         <div className="flex justify-center">
-          {cards.map((card, i) => (
-            <motion.div
-              key={card.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-500 w-full max-w-xl"
-            >
-              <div className="relative h-56 overflow-hidden">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  loading="lazy"
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="p-6">
-                <div className="mb-3">
-                  {card.iconType === "cattle" ? <CattleIcon /> : null}
-                </div>
-                <h3 className="text-foreground font-semibold text-lg mb-2">{card.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{card.details}</p>
-
-                <div className="space-y-2 border-t border-border pt-4">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Fiyat Aralığı</span>
-                    <span className="text-foreground font-semibold">{card.price}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Ağırlık</span>
-                    <span className="text-foreground font-medium">{card.weight}</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Hisse</span>
-                    <span className="text-foreground font-medium">{card.shares}</span>
-                  </div>
-                </div>
-
-                <a
-                  href="https://wa.me/905XXXXXXXXX"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2.5 rounded-lg font-medium text-sm transition-colors duration-300"
+          <motion.div
+            key={current}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="group border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-500 w-full max-w-2xl"
+          >
+            {/* Image Carousel */}
+            <div className="relative h-96 overflow-hidden bg-secondary">
+              {images.map((img, idx) => (
+                <motion.div
+                  key={img.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: idx === current ? 1 : 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0"
                 >
-                  Bilgi Al
-                </a>
+                  <img
+                    src={img.src}
+                    alt={img.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              ))}
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prev}
+                onMouseEnter={() => setAutoPlay(false)}
+                onMouseLeave={() => setAutoPlay(true)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-foreground/80 hover:bg-foreground text-primary-foreground p-2 rounded-full transition-all z-10"
+                aria-label="Onceki"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={next}
+                onMouseEnter={() => setAutoPlay(false)}
+                onMouseLeave={() => setAutoPlay(true)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-foreground/80 hover:bg-foreground text-primary-foreground p-2 rounded-full transition-all z-10"
+                aria-label="Sonraki"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              {/* Carousel Indicators */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                {images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setCurrent(idx);
+                      setAutoPlay(false);
+                    }}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      idx === current ? "bg-white w-8" : "bg-white/50"
+                    }`}
+                    aria-label={`Resim ${idx + 1}`}
+                  />
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Card Content */}
+            <div className="p-8">
+              <div className="mb-4">
+                <CattleIcon />
+              </div>
+              <motion.div
+                key={current}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3 className="text-foreground font-semibold text-2xl mb-2">
+                  {images[current].title}
+                </h3>
+                <p className="text-muted-foreground text-base leading-relaxed mb-6">
+                  {images[current].details}
+                </p>
+              </motion.div>
+
+              <div className="space-y-3 border-t border-border pt-6">
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Fiyat Araligi</span>
+                  <span className="text-foreground font-semibold">₺85.000 – ₺150.000</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Agirlik</span>
+                  <span className="text-foreground font-medium">350 – 600 kg</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-muted-foreground">Hisse</span>
+                  <span className="text-foreground font-medium">1, 2, 3 veya 7 Hisse</span>
+                </div>
+              </div>
+
+              <a
+                href="https://wa.me/905XXXXXXXXX"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium text-base transition-colors duration-300"
+              >
+                Bilgi Al
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

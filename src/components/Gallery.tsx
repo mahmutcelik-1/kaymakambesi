@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, Play } from "lucide-react";
 import inek1 from "@/assets/inek1.jpeg";
 import inek2 from "@/assets/inek2.jpeg";
 import inekler3 from "@/assets/inekler3.jpeg";
@@ -11,23 +11,50 @@ const galleryItems = [
     title: "Besili Ineklerimiz - 1",
     image: inek1,
     category: "Hayvan",
+    type: "image" as const,
   },
   {
     id: 2,
     title: "Besili Ineklerimiz - 2",
     image: inek2,
     category: "Hayvan",
+    type: "image" as const,
   },
   {
     id: 3,
     title: "Modern Tesislerimiz",
     image: inekler3,
     category: "Tesis",
+    type: "image" as const,
+  },
+  {
+    id: 4,
+    title: "Kesim Alani - 1",
+    image: inekler3,
+    videoSrc: "/assets/kesim-alani-video.mp4",
+    category: "Hizmet",
+    type: "video" as const,
+  },
+  {
+    id: 5,
+    title: "Kesim Islemi",
+    image: inek1,
+    videoSrc: "/assets/kesim-islemi-video.mp4",
+    category: "Hizmet",
+    type: "video" as const,
+  },
+  {
+    id: 6,
+    title: "Kurbanlik Hayvanlar",
+    image: inek2,
+    videoSrc: "/assets/kurbanlıklarımız-mp4.mp4",
+    category: "Urun",
+    type: "video" as const,
   },
 ];
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null);
+  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null);
 
   return (
     <section id="galeri" className="py-24 bg-secondary">
@@ -54,7 +81,7 @@ const Gallery = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              onClick={() => setSelectedImage(item)}
+              onClick={() => setSelectedItem(item)}
               className="group relative overflow-hidden rounded-xl cursor-pointer h-64 sm:h-56 md:h-64"
             >
               <img
@@ -63,6 +90,11 @@ const Gallery = () => {
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
+              {item.type === "video" && (
+                <div className="absolute inset-0 flex items-center justify-center bg-foreground/40 group-hover:bg-foreground/60 transition-colors">
+                  <Play className="w-16 h-16 text-white fill-white" />
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-4 w-full">
                   <p className="text-primary-foreground font-semibold text-sm">{item.title}</p>
@@ -74,12 +106,12 @@ const Gallery = () => {
         </div>
 
         {/* Lightbox Modal */}
-        {selectedImage && (
+        {selectedItem && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedItem(null)}
             className="fixed inset-0 bg-foreground/80 z-50 flex items-center justify-center p-4"
           >
             <motion.div
@@ -89,21 +121,32 @@ const Gallery = () => {
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-4xl w-full"
             >
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                className="w-full h-auto rounded-lg"
-              />
+              {selectedItem.type === "image" ? (
+                <img
+                  src={selectedItem.image}
+                  alt={selectedItem.title}
+                  className="w-full h-auto rounded-lg"
+                />
+              ) : (
+                <video
+                  controls
+                  autoPlay
+                  className="w-full h-auto rounded-lg bg-black"
+                >
+                  <source src={selectedItem.videoSrc} type="video/mp4" />
+                  Tarayiciniz videyo destemez
+                </video>
+              )}
               <button
-                onClick={() => setSelectedImage(null)}
+                onClick={() => setSelectedItem(null)}
                 className="absolute top-4 right-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full p-2 transition-colors"
                 aria-label="Kapat"
               >
                 <X className="w-5 h-5" />
               </button>
               <div className="mt-4 bg-card rounded-lg p-4">
-                <h3 className="text-foreground font-semibold text-lg">{selectedImage.title}</h3>
-                <p className="text-muted-foreground text-sm">{selectedImage.category}</p>
+                <h3 className="text-foreground font-semibold text-lg">{selectedItem.title}</h3>
+                <p className="text-muted-foreground text-sm">{selectedItem.category}</p>
               </div>
             </motion.div>
           </motion.div>
