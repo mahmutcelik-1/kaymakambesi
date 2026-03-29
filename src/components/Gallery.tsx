@@ -1,43 +1,33 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X } from "lucide-react";
+import inek1 from "@/assets/inek1.jpeg";
+import inek2 from "@/assets/inek2.jpeg";
+import inekler3 from "@/assets/inekler3.jpeg";
 
-const galleryImages = [
+const galleryItems = [
   {
     id: 1,
-    title: "Tesisimiz",
-    image: "https://images.unsplash.com/photo-1500595046891-93df74c63999?w=500&h=400&fit=crop",
-    category: "Tesis",
+    title: "Besili Ineklerimiz - 1",
+    image: inek1,
+    category: "Hayvan",
   },
   {
     id: 2,
-    title: "Hayvan Bakımı",
-    image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&h=400&fit=crop",
+    title: "Besili Ineklerimiz - 2",
+    image: inek2,
     category: "Hayvan",
   },
   {
     id: 3,
-    title: "Veteriner Kontrolü",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&h=400&fit=crop",
-    category: "Hizmet",
-  },
-  {
-    id: 4,
-    title: "Hijyenik Kesim Alanı",
-    image: "https://images.unsplash.com/photo-1595435934249-5df582848db3?w=500&h=400&fit=crop",
-    category: "Kesim",
-  },
-  {
-    id: 5,
-    title: "Doğal Beslenme Alanı",
-    image: "https://images.unsplash.com/photo-1500494f900e0ce24ad00797f91f53f6c4f06b4d9?w=500&h=400&fit=crop",
+    title: "Modern Tesislerimiz",
+    image: inekler3,
     category: "Tesis",
-  }
-  
+  },
 ];
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null);
+  const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null);
 
   return (
     <section id="galeri" className="py-24 bg-secondary">
@@ -49,34 +39,34 @@ const Gallery = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Tesisimizden Görüntüler</h2>
+          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Tesisimizden Goruntular</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Kaymakam Besi Çiftliğimizin modern tesislerini ve profesyonel hizmet alanlarını yakından tanıyın.
+            Kaymakam Besi Ciftligimizin modern tesislerini ve profesyonel hizmet alanlarini yakindan taninyin.
           </p>
         </motion.div>
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {galleryImages.map((img, i) => (
+          {galleryItems.map((item, i) => (
             <motion.div
-              key={img.id}
+              key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              onClick={() => setSelectedImage(img)}
+              onClick={() => setSelectedImage(item)}
               className="group relative overflow-hidden rounded-xl cursor-pointer h-64 sm:h-56 md:h-64"
             >
               <img
-                src={img.image}
-                alt={img.title}
+                src={item.image}
+                alt={item.title}
                 loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-4 w-full">
-                  <p className="text-primary-foreground font-semibold text-sm">{img.title}</p>
-                  <p className="text-primary-foreground/70 text-xs">{img.category}</p>
+                  <p className="text-primary-foreground font-semibold text-sm">{item.title}</p>
+                  <p className="text-primary-foreground/70 text-xs">{item.category}</p>
                 </div>
               </div>
             </motion.div>

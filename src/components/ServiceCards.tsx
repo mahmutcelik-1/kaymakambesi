@@ -1,15 +1,35 @@
 import { Beef } from "lucide-react";
 import { motion } from "framer-motion";
-import cattleImg from "@/assets/cattle.jpg";
+import inek1 from "@/assets/inek1.jpeg";
+import inek2 from "@/assets/inek2.jpeg";
+import inekler3 from "@/assets/inekler3.jpeg";
 
 const cards = [
   {
-    title: "Büyükbaş Kurbanlık",
-    image: cattleImg,
-    details: "Doğal Besleme · Veteriner Kontrolü · Hisse Seçenekleri",
+    title: "Besili İnekler - 1. Seçim",
+    image: inekler3,
+    details: "Doğal Beslenme · Veteriner Kontrolü · En Yüksek Kalite",
     iconType: "cattle" as const,
-    price: "₺85.000 – ₺150.000",
-    weight: "350 – 600 kg",
+    price: "₺85.000 – ₺120.000",
+    weight: "350 – 450 kg",
+    shares: "1, 2, 3 veya 7 Hisse",
+  },
+  {
+    title: "Besili İnekler - 2. Seçim",
+    image: inek1,
+    details: "Organik Beslenme · Sağlık Kontrolü · Premium Kalite",
+    iconType: "cattle" as const,
+    price: "₺90.000 – ₺140.000",
+    weight: "400 – 500 kg",
+    shares: "1, 2, 3 veya 7 Hisse",
+  },
+  {
+    title: "Besili İnekler - 3. Seçim",
+    image: inek2,
+    details: "Seçilmiş Beslenme · Hijyen Koşulları · İslami Usul",
+    iconType: "cattle" as const,
+    price: "₺95.000 – ₺150.000",
+    weight: "450 – 600 kg",
     shares: "1, 2, 3 veya 7 Hisse",
   },
 ];
