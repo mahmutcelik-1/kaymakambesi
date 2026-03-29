@@ -23,6 +23,7 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
 };
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
 
   // Close menu when clicking anywhere on the page
   useEffect(() => {
@@ -35,7 +36,6 @@ const Navbar = () => {
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, [open]);
-  const [open, setOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md border-b border-border/10">
