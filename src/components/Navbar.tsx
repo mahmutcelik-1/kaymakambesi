@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, MessageCircle, Shield } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { label: "Ana Sayfa", href: "#hero" },
@@ -22,6 +23,18 @@ const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
 };
 
 const Navbar = () => {
+
+  // Close menu when clicking anywhere on the page
+  useEffect(() => {
+    if (!open) return;
+
+    const handleClickOutside = () => {
+      setOpen(false);
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [open]);
   const [open, setOpen] = useState(false);
 
   return (
@@ -47,7 +60,10 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* WhatsApp + Hamburger */}
+        {/* WhatsApp +e) => {
+              e.stopPropagation();
+              setOpen(!open);
+            }
         <div className="flex items-center gap-3">
           <a
             href="https://wa.me/905373025300"
@@ -66,32 +82,40 @@ const Navbar = () => {
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-foreground/95 backdrop-blur-md border-t border-border/10 px-6 py-6 space-y-4">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => {
-                scrollToSection(e);
-                setOpen(false);
-              }}
-              className="block text-primary-foreground/70 hover:text-gold text-sm tracking-[0.15em] uppercase transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="https://wa.me/905373025300"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gold text-sm mt-4"
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden bg-foreground/95 backdrop-blur-md border-t border-border/10 px-6 py-6 space-y-4 overflow-hidden"
           >
-            <MessageCircle className="w-4 h-4" />
-            WhatsApp ile Ulaşın
+            {navLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={(e) => {
+                  scrollToSection(e);
+                  setOpen(false);
+                }}
+                className="block text-primary-foreground/70 hover:text-gold text-sm tracking-[0.15em] uppercase transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+            <a
+              href="https://wa.me/905373025300"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gold text-sm mt-4"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp ile Ulaşın
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>    WhatsApp ile Ulaşın
           </a>
         </div>
       )}
