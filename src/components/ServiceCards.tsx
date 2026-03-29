@@ -137,7 +137,7 @@ const ServiceCards = () => {
                   Besili İneklerimiz
                 </h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                  Kaymakam Besi Çiftliğinin en iyi kalitedeki, doğal beslenme ve veteriner kontrolünden geçmiş inekleri. Halal kesim ve hızlı teslimatla birlikte.
+                  Kaymakam Besi Çiftliğinin en iyi kalitedeki, doğal beslenme ve veteriner kontrolünden geçmiş inekleri. Helal kesim ve hızlı teslimatla birlikte.
                 </p>
               </div>
 
@@ -157,7 +157,7 @@ const ServiceCards = () => {
               </div>
 
               <a
-                href="https://wa.me/905XXXXXXXXX"
+                href="https://wa.me/905373025300"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium text-base transition-colors duration-300"
