@@ -43,7 +43,7 @@ const Footer = () => {
               />
               <input
                 type="tel"
-                placeholder="Telefon Numarası (5XX XXX XXXX)"
+                placeholder="Telefon Numarası (537 302 53 00)"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 pattern="[0-9]{10}"
@@ -84,7 +84,7 @@ const Footer = () => {
           {/* Center: WhatsApp CTA */}
           <div className="flex flex-col items-center text-center">
             <a
-              href="https://wa.me/905XXXXXXXXX"
+              href="https://wa.me/905373025300"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium text-sm transition-colors duration-300 mb-4"
@@ -92,9 +92,9 @@ const Footer = () => {
               <MessageCircle className="w-4 h-4" />
               WhatsApp ile Ulaşın
             </a>
-            <a href="tel:+905XXXXXXXXX" className="flex items-center gap-2 text-primary-foreground font-bold text-xl tracking-wide">
+            <a href="tel:+905373025300" className="flex items-center gap-2 text-primary-foreground font-bold text-xl tracking-wide">
               <Phone className="w-5 h-5 text-gold" />
-              05XX XXX XX XX
+              537 302 53 00
             </a>
           </div>
 
@@ -108,7 +108,7 @@ const Footer = () => {
               <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="https://wa.me/905XXXXXXXXX" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+              <a href="https://wa.me/905373025300" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
