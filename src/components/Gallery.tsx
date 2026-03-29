@@ -4,6 +4,9 @@ import { X, Play } from "lucide-react";
 import inek1 from "@/assets/inek1.jpeg";
 import inek2 from "@/assets/inek2.jpeg";
 import inekler3 from "@/assets/inekler3.jpeg";
+import kesimAlaniVideo from "@/assets/kesim-alani-video.mp4";
+import kesimIslemiVideo from "@/assets/kesim-islemi-video.mp4";
+import kurbanliklarVideo from "@/assets/kurbanlıklarımız-mp4.mp4";
 
 const galleryItems = [
   {
@@ -15,7 +18,7 @@ const galleryItems = [
   },
   {
     id: 2,
-    title: "Besili Ineklerimiz - 2",
+    title: "Besili İneklerimiz - 2",
     image: inek2,
     category: "Hayvan",
     type: "image" as const,
@@ -29,25 +32,25 @@ const galleryItems = [
   },
   {
     id: 4,
-    title: "Kesim Alani - 1",
+    title: "Kesim Alanı Görüntüsü",
     image: inekler3,
-    videoSrc: "/kaymakambesi/kesim-alani-video.mp4",
+    videoSrc: kesimAlaniVideo,
     category: "Hizmet",
     type: "video" as const,
   },
   {
     id: 5,
-    title: "Kesim Islemi",
+    title: "Kesim İşlemi",
     image: inek1,
-    videoSrc: "/kaymakambesi/kesim-islemi-video.mp4",
+    videoSrc: kesimIslemiVideo,
     category: "Hizmet",
     type: "video" as const,
   },
   {
     id: 6,
-    title: "Kurbanlik Hayvanlar",
+    title: "Kurbanlık Hayvanlar",
     image: inek2,
-    videoSrc: "/kaymakambesi/kurbanlıklarımız-mp4.mp4",
+    videoSrc: kurbanliklarVideo,
     category: "Urun",
     type: "video" as const,
   },
