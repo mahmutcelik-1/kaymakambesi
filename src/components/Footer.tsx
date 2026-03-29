@@ -85,7 +85,7 @@ const Footer = () => {
             {/* Right: Map Embed */}
             <div className="rounded-lg overflow-hidden border border-primary/30 h-96 shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.5230889523547!2d29.29867!3d40.77472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacffffffffff%3A0x0!2zNDDCsDQ2JzI3LjAi04rDh!5e0!3m2!1str!2str!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.285!2d29.522214987655122!3d40.923434516904855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac9999999999%3A0x0!2z40wrLjU1JzI0LjMi04rDhCAyOcKwMzEnMjAuMi7Do8OiIE8!5e0!3m2!1str!2str!4v1711770000000"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
