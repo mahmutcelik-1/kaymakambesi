@@ -1,5 +1,11 @@
-import { Shield, MessageCircle, Instagram, Facebook, Phone, MapPin, Youtube, Music } from "lucide-react";
+import { Shield, MessageCircle, Instagram, Facebook, Phone, MapPin, Youtube } from "lucide-react";
 import { useState } from "react";
+
+const TikTokIcon = () => (
+  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.86 2.86 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-.75-.05z"/>
+  </svg>
+);
 
 const Footer = () => {
   const [formData, setFormData] = useState({ name: "", phone: "" });
@@ -157,7 +163,7 @@ const Footer = () => {
                 <Instagram className="w-4 h-4" />
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="TikTok">
-                <Music className="w-4 h-4" />
+                <TikTokIcon />
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="YouTube">
                 <Youtube className="w-4 h-4" />

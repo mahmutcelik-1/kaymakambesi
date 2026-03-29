@@ -122,19 +122,19 @@ const Gallery = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full"
+              className="relative w-full max-h-[90vh] flex flex-col"
             >
               {selectedItem.type === "image" ? (
                 <img
                   src={selectedItem.image}
                   alt={selectedItem.title}
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto rounded-lg max-h-[80vh] object-contain"
                 />
               ) : (
                 <video
                   controls
                   autoPlay
-                  className="w-full h-auto rounded-lg bg-black"
+                  className="w-full h-auto rounded-lg bg-black max-h-[80vh] object-contain"
                 >
                   <source src={selectedItem.videoSrc} type="video/mp4" />
                   Tarayiciniz videyo destemez
