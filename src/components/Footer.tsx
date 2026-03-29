@@ -18,7 +18,85 @@ const Footer = () => {
   return (
     <footer id="iletisim" className="bg-emerald-darker text-primary-foreground">
       <div className="container mx-auto px-4 lg:px-8 py-16">
-        {/* Callback Form Section */}
+        {/* Contact Info Section - Resim Düzeninde */}
+        <div className="mb-20">
+          <div className="text-center mb-12">
+            <h2 className="text-gold font-semibold text-sm tracking-[0.25em] uppercase mb-2">BİZE ULAŞIN</h2>
+            <h3 className="text-white text-3xl md:text-4xl font-bold">İletişim Bilgileri</h3>
+          </div>
+
+          {/* Contact Section with Map - Two Column */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left: Contact Cards - Vertical Stack */}
+            <div className="space-y-4">
+              {/* Address Card */}
+              <div className="bg-primary/20 border border-primary/30 rounded-lg p-6 backdrop-blur-sm hover:border-gold/50 transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-gold font-semibold text-sm tracking-[0.1em] uppercase mb-2">Adres</h4>
+                    <p className="text-primary-foreground text-sm leading-relaxed">
+                      Kocaeli/Gebze Cumaköy mahallesi<br />
+                      Fatih caddesi no:1<br />
+                      Kaymakam Besi Çiftliği
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phone Card */}
+              <div className="bg-primary/20 border border-primary/30 rounded-lg p-6 backdrop-blur-sm hover:border-gold/50 transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-gold font-semibold text-sm tracking-[0.1em] uppercase mb-2">Telefon</h4>
+                    <a href="tel:+905373025300" className="text-primary-foreground text-sm font-semibold hover:text-gold transition-colors">
+                      0 537 302 53 00
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Location Card */}
+              <div className="bg-primary/20 border border-primary/30 rounded-lg p-6 backdrop-blur-sm hover:border-gold/50 transition-colors">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-gold" />
+                  </div>
+                  <div>
+                    <h4 className="text-gold font-semibold text-sm tracking-[0.1em] uppercase mb-2">Konum</h4>
+                    <a 
+                      href="https://maps.app.goo.gl/k6BFjzebHQzDwFDRA?g_st=iw"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-foreground text-sm font-semibold hover:text-gold transition-colors"
+                    >
+                      Google Maps Aç →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Map Embed */}
+            <div className="rounded-lg overflow-hidden border border-primary/30 h-96 shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.8568270389006!2d29.30066582346897!3d40.77620507131904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6e8d9c7d85f%3A0x1234567890abc!2sKaymakam%20Besi%20%C3%87iftli%C4%9Fi!5e0!3m2!1str!2str!4v"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Kaymakam Besi Çiftliği Konumu"
+              ></iframe>
+            </div>
+          </div>
+        </div>
         <div className="mb-16 lg:mb-20">
           <div className="max-w-2xl mx-auto bg-primary/10 rounded-xl p-8 border border-primary/20">
             <h3 className="text-gold font-semibold text-xl mb-2 text-center tracking-wide">
