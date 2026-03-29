@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, MessageCircle, Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,39 +9,50 @@ const navLinks = [
   { label: "İletişim", href: "#iletisim" },
 ];
 
-const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
-  e.preventDefault();
-  const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
-  if (!href) return;
-
+const scrollToSection = (href: string, callback?: () => void) => {
   const sectionId = href.replace("#", "");
   const element = document.getElementById(sectionId);
 
   if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
+    setTimeout(() => {
+      element.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+    if (callback) callback();
   }
 };
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navbarRef = useRef<HTMLElement>(null);
 
-  // Close menu when clicking anywhere on the page
+  // Close menu when clicking outside
   useEffect(() => {
     if (!open) return;
 
-    const handleClickOutside = () => {
-      setOpen(false);
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navbarRef.current && !navbarRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
     };
 
-    document.addEventListener("click", handleClickOutside);
+    setTimeout(() => {
+      document.addEventListener("click", handleClickOutside);
+    }, 0);
+
     return () => document.removeEventListener("click", handleClickOutside);
   }, [open]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md border-b border-border/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md border-b border-border/10" ref={navbarRef}>
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         {/* Logo */}
-        <a href="#hero" onClick={scrollToSection} className="flex items-center gap-2 group">
+        <a 
+          href="#hero" 
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("#hero");
+          }}
+          className="flex items-center gap-2 group">
           <Shield className="w-7 h-7 text-gold" strokeWidth={1.5} />
           <span className="text-primary-foreground font-semibold tracking-[0.25em] text-sm">KAYMAKAM BESI ÇİFTLİĞİ</span>
         </a>
@@ -52,7 +63,10 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              onClick={scrollToSection}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(l.href);
+              }}
               className="text-primary-foreground/70 hover:text-gold text-xs tracking-[0.2em] uppercase transition-colors duration-300"
             >
               {l.label}
@@ -60,10 +74,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* WhatsApp +e) => {
-              e.stopPropagation();
-              setOpen(!open);
-            }
+        {/* WhatsApp Button + Mobile Menu Toggle */}
         <div className="flex items-center gap-3">
           <a
             href="https://wa.me/905373025300"
@@ -75,13 +86,19 @@ const Navbar = () => {
             WhatsApp
           </a>
           <button
-            onClick={() => setOpen(!open)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setOpen(!open);
+            }}
             className="md:hidden text-primary-foreground/80"
             aria-label="Menü"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
+      </div>
+
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
@@ -96,10 +113,10 @@ const Navbar = () => {
                 key={l.href}
                 href={l.href}
                 onClick={(e) => {
-                  scrollToSection(e);
-                  setOpen(false);
+                  e.preventDefault();
+                  scrollToSection(l.href, () => setOpen(false));
                 }}
-                className="block text-primary-foreground/70 hover:text-gold text-sm tracking-[0.15em] uppercase transition-colors"
+                className="block text-primary-foreground/70 hover:text-gold text-sm tracking-[0.15em] uppercase transition-colors cursor-pointer"
               >
                 {l.label}
               </a>
@@ -115,10 +132,7 @@ const Navbar = () => {
             </a>
           </motion.div>
         )}
-      </AnimatePresence>    WhatsApp ile Ulaşın
-          </a>
-        </div>
-      )}
+      </AnimatePresence>
     </nav>
   );
 };
