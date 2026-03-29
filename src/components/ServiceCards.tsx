@@ -9,20 +9,14 @@ const images = [
   {
     id: 1,
     src: inekler3,
-    title: "Besili Inekler - 1. Secim",
-    details: "Dogal Beslenme · Veteriner Kontrolu · En Yuksek Kalite",
   },
   {
     id: 2,
     src: inek1,
-    title: "Besili Inekler - 2. Secim",
-    details: "Organik Beslenme · Saglik Kontrolu · Premium Kalite",
   },
   {
     id: 3,
     src: inek2,
-    title: "Besili Inekler - 3. Secim",
-    details: "Secilmis Beslenme · Hijyen Kosullari · Islami Usul",
   },
 ];
 
@@ -138,19 +132,14 @@ const ServiceCards = () => {
               <div className="mb-4">
                 <CattleIcon />
               </div>
-              <motion.div
-                key={current}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div>
                 <h3 className="text-foreground font-semibold text-2xl mb-2">
-                  {images[current].title}
+                  Besili Ineklerimiz
                 </h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                  {images[current].details}
+                  Kaymakam Besi Ciftliginin en iyi kalitedeki, dogal beslenme ve veteriner kontrolunden gecmis inekleri. Halal kesim ve hizli teslimatla birlikte.
                 </p>
-              </motion.div>
+              </div>
 
               <div className="space-y-3 border-t border-border pt-6">
                 <div className="flex justify-between text-sm">
