@@ -8,6 +8,19 @@ const navLinks = [
   { label: "İletişim", href: "#iletisim" },
 ];
 
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault();
+  const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+  if (!href) return;
+
+  const sectionId = href.replace("#", "");
+  const element = document.getElementById(sectionId);
+
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
@@ -15,7 +28,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-md border-b border-border/10">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
+        <a href="#hero" onClick={scrollToSection} className="flex items-center gap-2 group">
           <Shield className="w-7 h-7 text-gold" strokeWidth={1.5} />
           <span className="text-primary-foreground font-semibold tracking-[0.25em] text-sm">KAYMAKAM BESI ÇİFTLİĞİ</span>
         </a>
@@ -26,6 +39,7 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
+              onClick={scrollToSection}
               className="text-primary-foreground/70 hover:text-gold text-xs tracking-[0.2em] uppercase transition-colors duration-300"
             >
               {l.label}
@@ -61,7 +75,10 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => {
+                scrollToSection(e);
+                setOpen(false);
+              }}
               className="block text-primary-foreground/70 hover:text-gold text-sm tracking-[0.15em] uppercase transition-colors"
             >
               {l.label}
