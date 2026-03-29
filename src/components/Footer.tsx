@@ -1,4 +1,4 @@
-import { Shield, MessageCircle, Instagram, Facebook, Phone } from "lucide-react";
+import { Shield, MessageCircle, Instagram, Facebook, Phone, MapPin, Youtube, Music } from "lucide-react";
 import { useState } from "react";
 
 const Footer = () => {
@@ -81,34 +81,54 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Center: WhatsApp CTA */}
+          {/* Center: Contact Info */}
           <div className="flex flex-col items-center text-center">
             <a
               href="https://wa.me/905373025300"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium text-sm transition-colors duration-300 mb-4"
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-full font-medium text-sm transition-colors duration-300 mb-6"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp ile Ulaşın
             </a>
-            <a href="tel:+905373025300" className="flex items-center gap-2 text-primary-foreground font-bold text-xl tracking-wide">
+            
+            {/* Phone */}
+            <div className="flex items-center gap-2 text-primary-foreground font-bold text-lg tracking-wide mb-6">
               <Phone className="w-5 h-5 text-gold" />
               537 302 53 00
+            </div>
+
+            {/* Address with Maps Link */}
+            <a
+              href="https://maps.app.goo.gl/k6BFjzebHQzDwFDRA?g_st=iw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-primary-foreground hover:text-gold transition-colors text-sm mb-2"
+            >
+              <MapPin className="w-4 h-4" />
+              Konumumu Görüntüle
             </a>
+            <p className="text-primary-foreground/60 text-xs">Google Maps</p>
           </div>
 
           {/* Right: Social */}
           <div className="md:text-right">
-            <h4 className="text-gold font-medium text-sm tracking-[0.15em] uppercase mb-6">Hemen Ulaşın</h4>
-            <div className="flex md:justify-end gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+            <h4 className="text-gold font-medium text-sm tracking-[0.15em] uppercase mb-6">Bizi Takip Edin</h4>
+            <div className="flex md:justify-end gap-4 flex-wrap">
+              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="TikTok">
+                <Music className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="YouTube">
+                <Youtube className="w-4 h-4" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="Facebook">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="https://wa.me/905373025300" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors">
+              <a href="https://wa.me/905373025300" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="WhatsApp">
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
