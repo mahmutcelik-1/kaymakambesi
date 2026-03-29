@@ -63,11 +63,7 @@ const ServiceCards = () => {
         </motion.div>
 
         <div className="flex justify-center">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+          <div
             className="group border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-500 w-full max-w-2xl"
           >
             {/* Image Carousel */}
@@ -77,7 +73,7 @@ const ServiceCards = () => {
                   key={img.id}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: idx === current ? 1 : 0 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.8 }}
                   className="absolute inset-0"
                 >
                   <img
@@ -165,7 +161,7 @@ const ServiceCards = () => {
                 Bilgi Al
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
