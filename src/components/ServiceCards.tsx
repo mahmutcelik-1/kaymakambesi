@@ -57,9 +57,7 @@ const ServiceCards = () => {
           className="text-center mb-12"
         >
           <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Besili İneklerimiz</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Kaymakam Besi Çiftliğinin en iyi kalitedeki ineklerini buradan seçebilirsiniz.
-          </p>
+          
         </motion.div>
 
         <div className="flex justify-center">
