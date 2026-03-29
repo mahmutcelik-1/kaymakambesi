@@ -107,9 +107,9 @@ const Footer = () => {
               className="inline-flex items-center gap-2 text-primary-foreground hover:text-gold transition-colors text-sm mb-2"
             >
               <MapPin className="w-4 h-4" />
-              Konumumu Görüntüle
+              Konum
             </a>
-            <p className="text-primary-foreground/60 text-xs">Google Maps</p>
+            <p className="text-primary-foreground/60 text-xs">Kocaeli/Gebze Cumaköy mahallesi Fatih caddesi no:1</p>
           </div>
 
           {/* Right: Social */}
