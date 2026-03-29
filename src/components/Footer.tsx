@@ -85,7 +85,7 @@ const Footer = () => {
             {/* Right: Map Embed */}
             <div className="rounded-lg overflow-hidden border border-primary/30 h-96 shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.8568270389006!2d29.30066582346897!3d40.77620507131904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cac6e8d9c7d85f%3A0x1234567890abc!2sKaymakam%20Besi%20%C3%87iftli%C4%9Fi!5e0!3m2!1str!2str!4v"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3034.5230889523547!2d29.29867!3d40.77472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacffffffffff%3A0x0!2zNDDCsDQ2JzI3LjAi04rDh!5e0!3m2!1str!2str!4v1234567890"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -97,47 +97,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="mb-16 lg:mb-20">
-          <div className="max-w-2xl mx-auto bg-primary/10 rounded-xl p-8 border border-primary/20">
-            <h3 className="text-gold font-semibold text-xl mb-2 text-center tracking-wide">
-              BİZ SİZİ ARAYALIM
-            </h3>
-            <p className="text-primary-foreground/70 text-sm text-center mb-6">
-              Lütfen adınız ve telefon numaranızı bırakın, uzmanlarımız sizi en kısa sürede arayacaktır.
-            </p>
-            {submitted && (
-              <div className="mb-4 p-3 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200 text-sm text-center">
-                ✓ Talebiniz başarıyla alındı. Kısa sürede arayacağız!
-              </div>
-            )}
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Adınız"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2.5 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder-primary-foreground/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-colors text-sm"
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Telefon Numarası (537 302 53 00)"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                pattern="[0-9]{10}"
-                className="w-full px-4 py-2.5 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder-primary-foreground/50 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold/50 transition-colors text-sm"
-                required
-              />
-              <button
-                type="submit"
-                className="w-full bg-gold hover:bg-gold/90 text-foreground font-semibold py-2.5 rounded-lg transition-colors duration-300"
-              >
-                Beni Arayın.
-              </button>
-            </form>
-          </div>
-        </div>
-
         {/* Main Footer Content */}
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Left: Logo & Links */}
