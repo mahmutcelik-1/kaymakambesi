@@ -66,7 +66,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-6">
               <Shield className="w-6 h-6 text-gold" strokeWidth={1.5} />
-              <span className="font-semibold tracking-[0.25em] text-sm">ARSLAN</span>
+              <span className="font-semibold tracking-[0.25em] text-sm">KAYMAKAM BESI ÇİFTLİĞİ</span>
             </div>
             <div className="space-y-3">
               {["Ana Sayfa", "Kurbanlıklar", "Hizmetler", "İletişim"].map((l) => (
@@ -119,7 +119,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/10">
           <div className="py-5 text-center">
             <p className="text-primary-foreground/40 text-xs tracking-wider">
-              Tüm Hakları Saklıdır © 2026 Arslan Besi Çiftliği
+              Tüm Hakları Saklıdır © 2026 Kaymakam Besi Çiftliği
             </p>
           </div>
         </div>

@@ -17,7 +17,7 @@ const Navbar = () => {
         {/* Logo */}
         <a href="#hero" className="flex items-center gap-2 group">
           <Shield className="w-7 h-7 text-gold" strokeWidth={1.5} />
-          <span className="text-primary-foreground font-semibold tracking-[0.25em] text-sm">ARSLAN</span>
+          <span className="text-primary-foreground font-semibold tracking-[0.25em] text-sm">KAYMAKAM BESI ÇİFTLİĞİ</span>
         </a>
 
         {/* Desktop Links */}

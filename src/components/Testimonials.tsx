@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     name: "Mehmet A.",
-    text: "3. yılımız Arslan Çiftliği ile. Her sene aynı kalite ve güven. Ailecek çok memnunuz.",
+    text: "3. yılımız Kaymakam Besi Çiftliği ile. Her sene aynı kalite ve güven. Ailecek çok memnunuz.",
     rating: 5,
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
   },
   {
     name: "İbrahim K.",
-    text: "Arslan Çiftliği ile yılladır çalışıyorum. Her seferinde aynı profesyonellik ve kalite. Tavsiye ederim.",
+    text: "Kaymakam Besi Çiftliği ile yılladır çalışıyorum. Her seferinde aynı profesyonellik ve kalite. Tavsiye ederim.",
     rating: 5,
   },
 ];

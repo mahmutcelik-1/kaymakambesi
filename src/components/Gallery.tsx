@@ -51,7 +51,7 @@ const Gallery = () => {
         >
           <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Tesisimizden Görüntüler</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Arslan Besi Çiftliğimizin modern tesislerini ve profesyonel hizmet alanlarını yakından tanıyın.
+            Kaymakam Besi Çiftliğimizin modern tesislerini ve profesyonel hizmet alanlarını yakından tanıyın.
           </p>
         </motion.div>
 
