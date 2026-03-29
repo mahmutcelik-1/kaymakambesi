@@ -11,7 +11,7 @@ import kurbanliklarVideo from "@/assets/kurbanlıklarımız-mp4.mp4";
 const galleryItems = [
   {
     id: 1,
-    title: "Besili Ineklerimiz - 1",
+    title: "Besili İneklerimiz - 1",
     image: inek1,
     category: "Hayvan",
     type: "image" as const,
@@ -69,9 +69,9 @@ const Gallery = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Tesisimizden Goruntular</h2>
+          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Tesisimizden Görüntüler</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Kaymakam Besi Ciftligimizin modern tesislerini ve profesyonel hizmet alanlarini yakindan taninyin.
+            Kaymakam Besi Çiftliğimizin modern tesislerini ve profesyonel hizmet alanlarını yakından tanıyın.
           </p>
         </motion.div>
 

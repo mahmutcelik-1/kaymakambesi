@@ -56,9 +56,9 @@ const ServiceCards = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Besili Ineklerimiz</h2>
+          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Besili İneklerimiz</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Kaymakam Besi Ciftliginin en iyi kalitedeki ineklerini buradan secebilirsiniz.
+            Kaymakam Besi Çiftliğinin en iyi kalitedeki ineklerini buradan seçebilirsiniz.
           </p>
         </motion.div>
 
@@ -134,20 +134,20 @@ const ServiceCards = () => {
               </div>
               <div>
                 <h3 className="text-foreground font-semibold text-2xl mb-2">
-                  Besili Ineklerimiz
+                  Besili İneklerimiz
                 </h3>
                 <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                  Kaymakam Besi Ciftliginin en iyi kalitedeki, dogal beslenme ve veteriner kontrolunden gecmis inekleri. Halal kesim ve hizli teslimatla birlikte.
+                  Kaymakam Besi Çiftliğinin en iyi kalitedeki, doğal beslenme ve veteriner kontrolünden geçmiş inekleri. Halal kesim ve hızlı teslimatla birlikte.
                 </p>
               </div>
 
               <div className="space-y-3 border-t border-border pt-6">
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Fiyat Araligi</span>
+                  <span className="text-muted-foreground">Fiyat Aralığı</span>
                   <span className="text-foreground font-semibold">₺85.000 – ₺150.000</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Agirlik</span>
+                  <span className="text-muted-foreground">Ağırlık</span>
                   <span className="text-foreground font-medium">350 – 600 kg</span>
                 </div>
                 <div className="flex justify-between text-sm">
