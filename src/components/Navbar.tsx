@@ -50,7 +50,7 @@ const Navbar = () => {
         {/* WhatsApp + Hamburger */}
         <div className="flex items-center gap-3">
           <a
-            href="https://wa.me/905XXXXXXXXX"
+            href="https://wa.me/905373025300"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:flex items-center gap-2 border border-primary-foreground/30 text-primary-foreground/80 hover:border-gold hover:text-gold rounded-full px-4 py-1.5 text-xs tracking-wider transition-colors duration-300"
@@ -85,7 +85,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="https://wa.me/905XXXXXXXXX"
+            href="https://wa.me/905373025300"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-gold text-sm mt-4"

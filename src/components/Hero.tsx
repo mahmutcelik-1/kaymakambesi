@@ -2,6 +2,19 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import heroBull from "@/assets/hero-bull.jpg";
 
+const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  e.preventDefault();
+  const href = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
+  if (!href) return;
+
+  const sectionId = href.replace("#", "");
+  const element = document.getElementById(sectionId);
+
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-[700px] flex items-end overflow-hidden">
@@ -48,12 +61,13 @@ const Hero = () => {
         >
           <a
             href="#kurbanliklar"
+            onClick={scrollToSection}
             className="inline-flex items-center bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3.5 rounded-lg font-medium text-sm tracking-wide transition-colors duration-300"
           >
             İncele & Rezerve Et
           </a>
           <a
-            href="https://wa.me/905XXXXXXXXX"
+            href="https://wa.me/905373025300"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-primary-foreground/70 hover:text-gold text-sm transition-colors duration-300"
