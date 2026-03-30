@@ -159,10 +159,10 @@ const Footer = () => {
           <div className="md:text-right">
             <h4 className="text-gold font-medium text-sm tracking-[0.15em] uppercase mb-6">Bizi Takip Edin</h4>
             <div className="flex md:justify-end gap-4 flex-wrap">
-              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="Instagram">
+              <a href="https://instagram.com/kaymakambesiciftligi" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="TikTok">
+              <a href="https://www.tiktok.com/@kaymakam.besi.iftl?_r=1&_t=ZS-9563CEr1xH3" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="TikTok">
                 <TikTokIcon />
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors" title="YouTube">

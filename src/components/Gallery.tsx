@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { X, Play } from "lucide-react";
-import inek1 from "@/assets/inek1.jpeg";
-import inek2 from "@/assets/inek2.jpeg";
-import inekler3 from "@/assets/inekler3.jpeg";
+import tosun1 from "@/assets/inek1.jpeg";
+import tosun2 from "@/assets/inek2.jpeg";
+import tosunlar3 from "@/assets/inekler3.jpeg";
 import kesimAlaniVideo from "@/assets/kesim-alani-video.mp4";
 import kesimIslemiVideo from "@/assets/kesim-islemi-video.mp4";
 import kurbanliklarVideo from "@/assets/kurbanlıklarımız-mp4.mp4";
@@ -11,29 +11,29 @@ import kurbanliklarVideo from "@/assets/kurbanlıklarımız-mp4.mp4";
 const galleryItems = [
   {
     id: 1,
-    title: "Besili İneklerimiz - 1",
-    image: inek1,
+    title: "Besili Tosunlarımız - 1",
+    image: tosun1,
     category: "Hayvan",
     type: "image" as const,
   },
   {
     id: 2,
-    title: "Besili İneklerimiz - 2",
-    image: inek2,
+    title: "Besili Tosunlarımız - 2",
+    image: tosun2,
     category: "Hayvan",
     type: "image" as const,
   },
   {
     id: 3,
     title: "Modern Tesislerimiz",
-    image: inekler3,
+    image: tosunlar3,
     category: "Tesis",
     type: "image" as const,
   },
   {
     id: 4,
     title: "Kesim Alanı Görüntüsü",
-    image: inekler3,
+    image: tosunlar3,
     videoSrc: kesimAlaniVideo,
     category: "Hizmet",
     type: "video" as const,
@@ -41,7 +41,7 @@ const galleryItems = [
   {
     id: 5,
     title: "Kesim İşlemi",
-    image: inek1,
+    image: tosun1,
     videoSrc: kesimIslemiVideo,
     category: "Hizmet",
     type: "video" as const,
@@ -49,7 +49,7 @@ const galleryItems = [
   {
     id: 6,
     title: "Kurbanlık Hayvanlar",
-    image: inek2,
+    image: tosun2,
     videoSrc: kurbanliklarVideo,
     category: "Urun",
     type: "video" as const,

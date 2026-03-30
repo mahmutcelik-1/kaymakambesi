@@ -1,22 +1,22 @@
 import { Beef, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import inek1 from "@/assets/inek1.jpeg";
-import inek2 from "@/assets/inek2.jpeg";
-import inekler3 from "@/assets/inekler3.jpeg";
+import tosun1 from "@/assets/inek1.jpeg";
+import tosun2 from "@/assets/inek2.jpeg";
+import tosunlar3 from "@/assets/inekler3.jpeg";
 
 const images = [
   {
     id: 1,
-    src: inekler3,
+    src: tosunlar3,
   },
   {
     id: 2,
-    src: inek1,
+    src: tosun1,
   },
   {
     id: 3,
-    src: inek2,
+    src: tosun2,
   },
 ];
 
@@ -27,6 +27,7 @@ const CattleIcon = () => (
 const ServiceCards = () => {
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoPlay] = useState(true);
+  const [selectedShares, setSelectedShares] = useState<number[]>([]);
 
   useEffect(() => {
     if (!autoPlay) return;
@@ -46,6 +47,22 @@ const ServiceCards = () => {
     setAutoPlay(false);
   };
 
+  const handleShareClick = (shareNumber: number) => {
+    setSelectedShares((prev) =>
+      prev.includes(shareNumber)
+        ? prev.filter((s) => s !== shareNumber)
+        : [...prev, shareNumber]
+    );
+  };
+
+  const handleWhatsAppContact = () => {
+    const shareText =
+      selectedShares.length > 0
+        ? `${selectedShares.sort((a, b) => a - b).join(", ")} numaralı hisse(leri) almak istiyorum`
+        : "Tosun hissesi almak istiyorum";
+    window.open(`https://wa.me/905373025300?text=${encodeURIComponent(shareText)}`, "_blank");
+  };
+
   return (
     <section id="kurbanliklar" className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
@@ -56,7 +73,7 @@ const ServiceCards = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Besili İneklerimiz</h2>
+          <h2 className="text-foreground text-3xl font-bold mb-4 tracking-tight">Besili Tosunlarımız</h2>
           
         </motion.div>
 
@@ -123,41 +140,59 @@ const ServiceCards = () => {
 
             {/* Card Content */}
             <div className="p-8">
-              <div className="mb-4">
-                <CattleIcon />
-              </div>
-              <div>
-                <h3 className="text-foreground font-semibold text-2xl mb-2">
-                  Besili İneklerimiz
+              <div className="mb-6">
+                <h3 className="text-foreground font-semibold text-2xl mb-4">
+                  Besili Tosunlarımız
                 </h3>
-                <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                  Kaymakam Besi Çiftliğinin en iyi kalitedeki, doğal beslenme ve veteriner kontrolünden geçmiş inekleri. Helal kesim ve hızlı teslimatla birlikte.
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  Kaymakam Besi Çiftliğinin en iyi kalitedeki, doğal beslenme ve veteriner kontrolünden geçmiş tosunları. Helal kesim ve hızlı teslimatla birlikte.
                 </p>
               </div>
 
-              <div className="space-y-3 border-t border-border pt-6">
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Fiyat Aralığı</span>
-                  <span className="text-foreground font-semibold">₺85.000 – ₺150.000</span>
+              <div className="space-y-6 border-t border-border pt-6">
+                {/* Price and Weight Info */}
+                <div className="space-y-3">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Fiyat Aralığı</span>
+                    <span className="text-foreground font-semibold">₺85.000 – ₺150.000</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Ağırlık</span>
+                    <span className="text-foreground font-medium">350 – 600 kg</span>
+                  </div>
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Ağırlık</span>
-                  <span className="text-foreground font-medium">350 – 600 kg</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Hisse</span>
-                  <span className="text-foreground font-medium">1, 2, 3 veya 7 Hisse</span>
+
+                {/* Share/Hisse Selection */}
+                <div className="space-y-4">
+                  <h4 className="text-foreground font-semibold text-lg">Hisse Seçimi</h4>
+                  <div className="grid grid-cols-7 gap-2">
+                    {[1, 2, 3, 4, 5, 6, 7].map((shareNum) => (
+                      <button
+                        key={shareNum}
+                        onClick={() => handleShareClick(shareNum)}
+                        className={`aspect-square rounded-lg font-semibold text-sm transition-all duration-200 border-2 ${
+                          selectedShares.includes(shareNum)
+                            ? "bg-primary border-primary text-primary-foreground shadow-lg scale-105"
+                            : "bg-secondary border-border text-foreground hover:border-primary hover:bg-primary/10"
+                        }`}
+                        title={`${shareNum} numaralı hisse`}
+                      >
+                        {shareNum}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-muted-foreground text-xs">
+                    Almak istediğiniz hisse numaralarına tıklayın. Doğrudan WhatsApp üzerinden iletişime geçebilirsiniz.
+                  </p>
                 </div>
               </div>
 
-              <a
-                href="https://wa.me/905373025300"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleWhatsAppContact}
                 className="mt-6 w-full inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-lg font-medium text-base transition-colors duration-300"
               >
-                Bilgi Al
-              </a>
+                {selectedShares.length > 0 ? "WhatsApp'ta Sipariş Ver" : "WhatsApp'da Bilgi Al"}
+              </button>
             </div>
           </div>
         </div>
